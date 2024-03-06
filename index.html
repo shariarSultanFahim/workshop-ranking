@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PCTCD || Leaderboard</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Daisy UI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="my-4">
+
+    <div class="container mx-auto">
+        <table class="table  text-[.75rem] md:text-md lg:text-xl ">
+            <!-- Table Head -->
+            <thead>
+              <tr class="text-center bg-green-500 text-[.75rem] md:text-md lg:text-xl shadow-lg">
+                <th>Rank</th>
+                <th>Score</th>
+                <th>Name</th>
+                <th>Class Roll</th>
+                <th>Present Count</th>
+                <th>Contest Count</th>
+                <th>Solve Count</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+
+            <!-- Table Body -->
+            <tbody id="student-rank">
+              <!-- JS Code  -->
+            </tbody>
+          </table>
+    </div>
+     <!-- Loading Animation -->
+    <div id="loading" class="hidden fixed z-999 left-[45%] top-[40%] opacity-50 justify-center items-center w-24 h-24 loading loading-spinner   loading-lg "></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
