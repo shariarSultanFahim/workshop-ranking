@@ -1,6 +1,8 @@
 const studentApi = async () => {
   document.getElementById("loading").classList.remove("hidden");
   document.getElementById("loading").classList.add("flex");
+  document.getElementById('rank-table').classList.add('hidden');
+  document.getElementById('top-three').classList.add('hidden');
   const res = await fetch("https://sheetdb.io/api/v1/xzodpywpk6f9y");
   const data = await res.json();
   const studentRanking = data;
@@ -75,6 +77,8 @@ const showStudentRanking = (students) => {
         `;
       document.getElementById("loading").classList.add("hidden");
       document.getElementById("loading").classList.remove("flex");
+      document.getElementById('rank-table').classList.remove('hidden');
+      document.getElementById('top-three').classList.remove('hidden');
       studentTable.append(newStudentData);
     }
   });
