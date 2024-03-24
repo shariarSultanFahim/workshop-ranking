@@ -696,11 +696,11 @@ const showStudentRanking = (students) => {
             </div>
           </div>
 
-          <h1 class="py-4 text-xl font-medium text-center">${student.name}</h1>
+          <h1 class="py-4 text-xl font-medium text-center w-40">${student.name}</h1>
           </div>
 
-          <div class="flex flex-col justify-between items-center gap-4 py-4  bg-purple-700 rounded-lg w-full">
-          <h1 class="text-5xl font-bold text-white">1</h1>
+          <div class="flex flex-col justify-between items-center gap-4 py-4  bg-purple-700 rounded-lg w-full h-full">
+          <h1 class="text-5xl font-bold text-white">2</h1>
           <h1 class="text-lg text-white">Score : ${student.totalPoint}</h1>
           </div>
       `;
@@ -710,41 +710,41 @@ const showStudentRanking = (students) => {
     student = students[i+1];
     topRank.classList = 'flex flex-col items-center justify-center  mt-10  rounded-lg shadow-md shadow-black'
     topRank.innerHTML = `
-    <div class="p-8">
-      <div class="avatar  p-6">
-            <div id="rank-two-img" class=" shadow-lg shadow-[#7000ff] w-24 rounded-full">
+      <div class="p-8">
+      <div class="avatar pl-8 py-6">
+            <div class=" shadow-lg shadow-[#7000ff] w-24 rounded-full">
               <img class="" src="${student.image}" alt="">
             </div>
           </div>
 
-          <h1 class="py-4 text-xl font-medium text-center">${student.name}</h1>
+          <h1 class="py-4 text-xl font-medium text-center w-40">${student.name}</h1>
           </div>
 
-        <div class="flex flex-col justify-between items-center gap-4 py-4 bg-purple-700 rounded-lg w-full">
-        <h1 class="text-5xl font-bold text-white">2</h1>
-        <h1 class="text-lg text-white">Score : ${student.totalPoint}</h1>
-        </div>
-    `;
+          <div class="flex flex-col justify-between items-center gap-4 py-4  bg-purple-700 rounded-lg w-full h-full">
+          <h1 class="text-5xl font-bold text-white">1</h1>
+          <h1 class="text-lg text-white">Score : ${student.totalPoint}</h1>
+          </div>
+      `;
     topThreeConainer.append(topRank);
     } else if (rank == 3) {
     rank++;
     topRank.classList = 'flex flex-col items-center justify-center  mt-10  rounded-lg shadow-md shadow-black'
     topRank.innerHTML = `
-    <div class="p-8">
-      <div class="avatar  p-6">
-            <div id="rank-two-img" class=" shadow-lg shadow-[#7000ff] w-24 rounded-full">
+      <div class="p-8">
+      <div class="avatar pl-8 py-6">
+            <div class=" shadow-lg shadow-[#7000ff] w-24 rounded-full">
               <img class="" src="${student.image}" alt="">
             </div>
           </div>
 
-          <h1 class="py-4 text-xl font-medium text-center">${student.name}</h1>
+          <h1 class="py-4 text-xl font-medium text-center w-40">${student.name}</h1>
           </div>
 
-        <div class="flex flex-col justify-between items-center gap-4 py-4 bg-purple-700 rounded-lg w-full">
-        <h1 class="text-5xl font-bold text-white">3</h1>
-        <h1 class="text-lg text-white">Score : ${student.totalPoint}</h1>
-        </div>
-    `;
+          <div class="flex flex-col justify-between items-center gap-4 py-4  bg-purple-700 rounded-lg w-full h-full">
+          <h1 class="text-5xl font-bold text-white">3</h1>
+          <h1 class="text-lg text-white">Score : ${student.totalPoint}</h1>
+          </div>
+      `;
     topThreeConainer.append(topRank);
     } else {
       newStudentData.innerHTML = `
