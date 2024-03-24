@@ -684,11 +684,33 @@ const showStudentRanking = (students) => {
     
     const topThreeConainer = document.getElementById('top-three');
     const topRank = document.createElement('div');
+
     if (rank == 2) {
       rank++;
       student = students[i-1];
-      topRank.classList = 'flex flex-col items-center justify-center  mb-10 rounded-lg shadow-md shadow-black'
+      topRank.classList = 'w-[90%] mx-auto md:w-auto md:mx-0 flex flex-col items-center justify-center  mb-10 rounded-lg shadow-md shadow-black'
       topRank.innerHTML = `
+      <div class="p-8"> 
+      <div class="avatar pl-8 py-6">
+            <div class=" shadow-lg shadow-[#7000ff] w-24 rounded-full">
+              <img class="" src="${student.image}" alt="">
+            </div>
+          </div>
+
+          <h1 class="py-4 text-xl font-medium text-center w-40">${student.name}</h1>
+          </div>
+
+          <div class="flex flex-col justify-between items-center gap-4 py-4  bg-purple-700 rounded-lg w-full h-full">
+          <h1 class="text-5xl font-bold text-white">1</h1>
+          <h1 class="text-lg text-white">Score : ${student.totalPoint}</h1>
+          </div>
+      `;
+      topThreeConainer.append(topRank);
+    } else if (rank == 1) {
+    rank++;
+    student = students[i+1];
+    topRank.classList = 'w-[90%] mx-auto md:w-auto md:mx-0 flex flex-col items-center justify-center  mt-10  rounded-lg shadow-md shadow-black'
+    topRank.innerHTML = `
       <div class="p-8">
       <div class="avatar pl-8 py-6">
             <div class=" shadow-lg shadow-[#7000ff] w-24 rounded-full">
@@ -704,31 +726,10 @@ const showStudentRanking = (students) => {
           <h1 class="text-lg text-white">Score : ${student.totalPoint}</h1>
           </div>
       `;
-      topThreeConainer.append(topRank);
-    } else if (rank == 1) {
-      rank++;
-    student = students[i+1];
-    topRank.classList = 'flex flex-col items-center justify-center  mt-10  rounded-lg shadow-md shadow-black'
-    topRank.innerHTML = `
-      <div class="p-8">
-      <div class="avatar pl-8 py-6">
-            <div class=" shadow-lg shadow-[#7000ff] w-24 rounded-full">
-              <img class="" src="${student.image}" alt="">
-            </div>
-          </div>
-
-          <h1 class="py-4 text-xl font-medium text-center w-40">${student.name}</h1>
-          </div>
-
-          <div class="flex flex-col justify-between items-center gap-4 py-4  bg-purple-700 rounded-lg w-full h-full">
-          <h1 class="text-5xl font-bold text-white">1</h1>
-          <h1 class="text-lg text-white">Score : ${student.totalPoint}</h1>
-          </div>
-      `;
     topThreeConainer.append(topRank);
     } else if (rank == 3) {
     rank++;
-    topRank.classList = 'flex flex-col items-center justify-center  mt-10  rounded-lg shadow-md shadow-black'
+    topRank.classList = 'w-[90%] mx-auto md:w-auto md:mx-0 flex flex-col items-center justify-center  mt-10  rounded-lg shadow-md shadow-black md:w-auto'
     topRank.innerHTML = `
       <div class="p-8">
       <div class="avatar pl-8 py-6">
@@ -746,23 +747,25 @@ const showStudentRanking = (students) => {
           </div>
       `;
     topThreeConainer.append(topRank);
-    } else {
+    }else{
       newStudentData.innerHTML = `
         <td>${rank++}</td>
         <td>${student.totalPoint}</td>
         <td>${student.name}</td>
-        <td>${student.roll}</td>
-        <td>${student.totalAttendance}</td>
-        <td>${student.contestCount}</td>
-        <td>${student.solveCount}</td>
-        <td>${student.solveTime}</td>
+        <td class="hidden md:table-cell">${student.roll}</td>    
+        <td class="hidden md:table-cell">${student.totalAttendance}</td>
+        <td class="hidden md:table-cell">${student.contestCount}</td>
+        <td class="hidden md:table-cell">${student.solveCount}</td>
+        <td class="hidden md:table-cell">${student.solveTime}</td>
         `;
+    }
+      
       document.getElementById("loading").classList.add("hidden");
       document.getElementById("loading").classList.remove("flex");
       document.getElementById('rank-table').classList.remove('hidden');
       document.getElementById('top-three').classList.remove('hidden');
       studentTable.append(newStudentData);
-    }
+    
   };
 };
 studentApi(api);
